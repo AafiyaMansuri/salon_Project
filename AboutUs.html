@@ -1,0 +1,358 @@
+<html>
+<head>
+<style>
+#loader {
+		  position: absolute;
+		  left: 50%;
+		  top: 50%;
+		  z-index: 1;
+		  width: 50px;
+		  height: 50px;
+		  margin: -76px 0 0 -76px;
+		  border: 16px solid black;
+		  border-radius: 20%;
+		  border-top: 16px solid gray;
+		  -webkit-animation: spin 2s linear infinite;
+		  animation: spin 2s linear infinite;
+		}
+
+		@-webkit-keyframes spin {
+		  0% { -webkit-transform: rotate(0deg); }
+		  100% { -webkit-transform: rotate(360deg); }
+		}
+
+		@keyframes spin {
+		  0% { transform: rotate(0deg); }
+		  100% { transform: rotate(360deg); }
+		}
+
+
+		.animate-bottom {
+		  position: relative;
+		  -webkit-animation-name: animatebottom;
+		  -webkit-animation-duration: 1s;
+		  animation-name: animatebottom;
+		  animation-duration: 1s
+		}
+
+		@-webkit-keyframes animatebottom {
+		  from { bottom:-100px; opacity:0 } 
+		  to { bottom:0px; opacity:1 }
+		}
+
+		@keyframes animatebottom { 
+		  from{ bottom:-100px; opacity:0 } 
+		  to{ bottom:0; opacity:1 }
+		}
+
+		#myDiv {
+		  display: none;
+		  text-align: center;
+		}
+		
+		.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  opacity:0.7;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #0000cc;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+	.logo img{
+	float:left;
+	width:150px;
+	height:auto;
+	}
+	
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration:none;
+  font-family:Algreya;
+  font-style:bold;
+}
+
+li a:hover:not(.active) {
+  background-color: #d9d9d9;
+  color:black;
+}
+.active {
+  background-color: #d9d9d9;
+  color:black;
+}
+li a, .dropbtn {
+		  <!--display: inline-block;-->
+		  color: white;
+		  text-align: center;
+		  padding: 14px 25px;
+		  text-decoration: none;
+		}
+
+		li a:hover, .dropdown:hover .dropbtn {
+		  <!--background-color:#0000cc;-->
+		  color:black;
+		}
+
+		li a:hover{
+			color:#000000;
+		}
+		li.dropdown {                   
+		  display: inline-block;
+		}
+
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  background-color: #f9f9f9;
+		  min-width: 160px;
+		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		  z-index: 1;
+		  opacity:0.6;
+		}
+
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		  text-align: left;
+		}
+
+		.dropdown-content a:hover {background-color:#f1f1f1 ;}
+
+		.dropdown:hover .dropdown-content {
+		  display: block;
+		}
+		.footer{
+			background-color:black;
+			padding:20px;
+			
+		}
+		.link{
+			text-align:center;
+		}
+		
+		body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("ab.png");
+  height: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width:100%;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-10%, -10%);
+  color: white;
+  
+}
+
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 20px 35px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #555;
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+</style>
+</head>
+<body onload="myFunction()" style="margin:0;">
+<div id="loader"></div>
+<div style="display:none;" id="myDiv" class="animate-bottom">
+
+<div class="hero-image">
+<div class="main">
+			<div class="logo">
+				<img src="logo2.png">
+			</div>
+		<ul>
+		<li>
+		<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="photo gallery.html">photo Gallery</a>
+  <a href="video.html">video</a>
+  <a href="Terms and Conditions.html">Terms and Conditions</a>
+</div>
+<span style="font-size:30px;cursor:pointer;color:white" onclick="openNav()">&#9776;</span>
+</li>
+  <li><a href="#review">REVIEW</a></li>
+  <li><a href="#membership">MEMBERSHIP</a></li>
+  <li><a class="active" href="AbouUs.html">ABOUT US</a></li>
+  <li class="dropdown">
+	<a href="Services.html" class="dropbtn">SERVICES</a>
+		<div class="dropdown-content">
+		<a href="HAIR.html">HAIR</a>
+		<a href="Makeup.html">MAKEUP</a>
+		<a href="Nails.html">NAILS</a>
+		<a href="Skin care.html">SKIN CARE</a>
+		</div>	
+	</li>
+  <li><a href="home.html">HOME</a></li>
+</ul>
+
+</div></div>
+<br>
+<table>
+	<tr>
+		<td>
+			<img src="img.png" width="98%"height="400px">
+		</td>
+		<td>
+			<h2>Welcome to A TOUCH OF CLASS BEAUTY SALON – Where Style Meets Creativity</h2><br>
+			<font size="4px"><p>A TOUCH OF CLASS BEAUTY SALON is the brainchild of a group of dynamic entrepreneurs who have vast expertise & knowledge in the field of hair and makeup industry.</p>
+			<p>Established in XXXX, our salon focuses on modern, fashion-conscious men & women, and their exploration of self-acclaim and beauty. Over the years, we have emerged as the best unisex salon in Ahmedabad, bringing to you an array of beauty, hair & grooming services that match up to international standards.</p>
+			<p>Our repertoire of experienced hair stylists and beauty experts are highly sought after in the industry, helping you discover the fine art of beauty at its best.</p>
+			<p>Acclaimed for our creativity and excellent quality for stunning make-up techniques, hairstyles and skin care services, we promise an unforgettable experience – an epitome of luxury, style and novelty</p></font>
+		</td>
+	</tr>
+</table><br><br>
+<table align="center" width="80%">
+	<tr>
+		<td>
+			<h2>Advantage Quality</h2>
+			<font size="4px"><p>At Our salon, customer satisfaction is our priority, and we endeavor achieving it by offering exceptional quality that meets international standards.</p>
+
+				<p>We combine the best quality products with modern technology to deliver top-notch services that cater to your unique style, personality and needs.</p>
+
+				<p>We continuously train & educate our stylists about the latest techniques and style trends with state-of-the-art technology, promising to deliver highest standards of quality every time.</p></font>
+		</td>
+		<td>
+			<h2>Advantage A TOUCH OF CLASS BEAUTY SALON</h2>
+			<font size="4px"><p>Our Salon is a name synonymous to exceptional quality, creativity and amazing results that help you redefine your style statement and personality.</p>
+
+				<p>Our competitive edge lies in offering bespoke services that emphasize diverse facets of beauty and hair.</p>
+
+				<p>Whatever are your beauty worries – tips to toes or hair woes – your answers lie with us.
+	
+				Come; embark on a memorable salon experience with us!</p></font>
+		</td>
+	</tr>
+</table>
+<div class="footer">
+				<table width="100%">
+				<tr>
+					<br>
+					<br><td><img src="logo2.png" width="150px"></td>
+					<td style="text-align:center-left;font-size:18px;font-family:sant-sarif"><font color="white"><h1>Contact Us On:</h1> </font>
+					
+					<p style="text-align:center-left;font-size:18px;font-family:sant-sarif"><font color="white">B-201/1 Amrapali Lake View<br>
+																												Vastrapur, Ahmedabad,<br>
+																												Gujrat, India<br>
+					<p>Phone: +91-9426003145 <br><br> Email: info@touchofclass.in</p>
+					</font></p>
+					</td><td></td>
+					<div class="time">
+					<td style="text-align:left-side"><font color="white" size="6px">Opening Time</font>
+					<br>
+					<br>
+					<p><font color="white">Monday to Saturday: 10.30 am to 8.30 pm<br><br>
+						Sunday: 11.00 am to 8.00 pm</font></p>
+					</td>
+					</div>
+					<div class="img">
+					<td style="text-align:right"> <img src="in.png" width="50px;">
+					<img src="fb.png" width="50px";><br>
+					<img src="tw.png"width="50px";>
+					<img src="wp.png" width="50px;"><br><br><br>
+					<p><font color="white"2021> ©A Touch Of Class.All Rights Reserved</font></p>
+					</td></div>
+				</tr>
+			</table>
+			</div>
+</div>
+<script>
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 2000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+</script>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+</body>
+</html>
